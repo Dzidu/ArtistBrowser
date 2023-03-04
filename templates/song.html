@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{artist}}</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+}
+
+.topnav {
+  align-items:center;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  overflow: hidden;
+  background-color: #26a849;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #fffff;
+  color: black;
+}
+.topnav a.mainFont {
+  font-size:60px;
+}
+
+.topnav a.sideFont {
+  font-size:30px;
+}
+.containerArtist {
+  padding-top:50px;
+  padding-bottom:25px;
+  justify-content:space-around;
+  display: flex;
+  flex-wrap:wrap;
+  gap:75px;
+}
+.containerTitle {
+  padding-bottom:75px;
+  justify-content:space-around;
+  display: flex;
+  flex-wrap:wrap;
+  gap:75px;
+}
+.containerLyrics {
+  padding-top:25px;
+  padding-bottom:25px;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 0 auto;
+  display: flex;
+  gap:75px;
+  background: #3f3d3b;
+  width: 700px;
+}
+.artistFont {
+  font-size:60px;
+  color:#26a849;
+}
+.songFont {
+  font-size:45px;
+  color:#f2f2f2;
+}
+.lyricsFont {
+  font-size:20px;
+  color:#f2f2f2;
+}
+</style>
+</head>
+<body>
+<div class="topnav">
+    <a class="sideFont" >Baza piosenek</a>
+    <a class="mainFont" href="/">Spotify</a>
+    <a class="sideFont" >Auto strony</a>
+</div>
+<div class="containerArtist">
+    <a class="artistFont"> {% print(artist) %}</a>
+</div>
+<div class="containerTitle">
+    <a class="songFont"> {% print(song) %}</a>
+</div>
+<div class="containerLyrics">
+    <a class="lyricsFont"> {% print(lyrics) %}</a>
+</div>
+</body>
+</html>

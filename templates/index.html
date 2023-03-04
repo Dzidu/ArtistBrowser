@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+}
+
+.topnav {
+  align-items:center;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  overflow: hidden;
+  background-color: #26a849;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #fffff;
+  color: black;
+}
+.topnav a.mainFont {
+  font-size:60px;
+}
+
+.topnav a.sideFont {
+  font-size:30px;
+}
+.container {
+  padding-top:50px;
+  padding-bottom:50px;
+  padding-left:100px;
+  padding-right:100px;
+  justify-content:space-around;
+  display: flex;
+  flex-wrap:wrap;
+  gap:75px;
+}
+.boxBrown {
+  display:flex;
+  flex-direction:column;
+  height:350px;
+  width:250px;
+  align-items:center;
+  justify-content:center;
+  background:#C38452;
+  border: 1px solid grey;
+}
+.boxPink {
+  display:flex;
+  flex-direction:column;
+  height:350px;
+  width:250px;
+  align-items:center;
+  justify-content:center;
+  background:#FB607F;
+  border: 1px solid grey;
+}
+.img{
+  height:300px;
+  width:250px;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+<div class="topnav">
+    <a class="sideFont" >Baza piosenek</a>
+    <a class="mainFont" href="/">Spotify</a>
+    <a class="sideFont" >Auto strony</a>
+</div>
+<div class="container">
+{% for artist_url,artist_list,artist_song_counted in artist_url_list_counted %}
+    <a style="text-decoration:none; color: inherit;" href="http://127.0.0.1:5000/{{ artist_list }}" >
+    <div class="boxBrown {% if artist_song_counted == 1 %}boxPink{% endif %}">
+        <img class="img" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/800px-Black_colour.jpg'" src={{ artist_url }}>
+        <div>
+            <p style="color:white;"> {{ artist_list }} ({{artist_song_counted}}) </p>
+        </div>
+    </div>
+    </a>
+{% endfor %}
+</div>
+</body>
+</html>

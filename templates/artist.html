@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{artist}}</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+}
+
+.topnav {
+  align-items:center;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  overflow: hidden;
+  background-color: #26a849;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #fffff;
+  color: black;
+}
+.topnav a.mainFont {
+  font-size:60px;
+}
+
+.topnav a.sideFont {
+  font-size:30px;
+}
+.container {
+  padding-top:50px;
+  padding-bottom:25px;
+  justify-content:space-around;
+  display: flex;
+  flex-wrap:wrap;
+  gap:75px;
+}
+.artistFont {
+  font-size:60px;
+  color:#26a849;
+}
+.img{
+  height:650px;
+  width:450px;
+  object-fit: cover;
+  border: 1px solid grey;
+}
+.containerTableImg {
+  padding-left:100px;
+  padding-right:50px;
+  display: flex;
+  flex-direction:row;
+  gap:75px;
+}
+table.songsTable {
+  background-color: black;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.songsTable th {
+  border: 1px solid grey;
+  height:40px;
+  font-size:20px;
+  color: #26a849;
+  background: #3f3d3b;
+}
+table.songsTable td {
+  border: 1px solid grey;
+  height:30px;
+  color: #f2f2f2;
+  font-size:16px;
+  background: #606060;
+}
+.buttonLyrics {
+  background-color: #26a849;
+  border: none;
+  color: #f2f2f2;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  width: 60px;
+}
+</style>
+</head>
+<body>
+<div class="topnav">
+    <a class="sideFont" >Baza piosenek</a>
+    <a class="mainFont" href="/">Spotify</a>
+    <a class="sideFont" >Auto strony</a>
+</div>
+<div class="container">
+    <a class="artistFont"> {% print(artist) %}</a>
+</div>
+<div class="containerTableImg">
+    <img class="img" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/800px-Black_colour.jpg'" src={{ artist_img }}>
+    <table class="songsTable">
+        <thead>
+          <tr>
+              <th>Tytuł</th>
+              <th>Tekst</th>
+              <th>Język</th>
+              <th>Rok</th>
+              <th>Typ</th>
+          </tr>
+        </thead>
+        {% for title,language,year,top_genre in artist_df %}
+        <tbody>
+          <tr>
+              <td>{{ title }}</td>
+              <td> <a class="buttonLyrics" href="http://127.0.0.1:5000/{{ artist }}/{{ title }}" > Click </a></td>
+              <td>{{ language.upper() }}</td>
+              <td>{{ year }}</td>
+              <td>{{ top_genre.capitalize() }}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+        {% for i in range(tableLen) %}
+        <tbody>
+          <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+</div>
+</body>
+</html>
