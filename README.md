@@ -1,1 +1,1 @@
-# MiniSpoti
+Projekt zaliczeniowy
