@@ -1,7 +1,7 @@
 # Projekt zaliczeniowy
 
 1. Wyświetlanie artystów z .csv
-   - scrap zdjęcia
+   - zdjęcia (zescrapowane z wikipedii)
    - imię, nazwisko
    - liczba piosenek
 2. Wyświetlanie piosenek dla danego artysty
